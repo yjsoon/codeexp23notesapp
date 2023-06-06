@@ -31,11 +31,12 @@ function NotesScreen({ navigation }) {
   });
 
   function addNote() {
-    let newNote = {
-      title: "Sample new note",
-      id: notes.length.toString()
-    };
-    setNotes([...notes, newNote]);
+    // let newNote = {
+    //   title: "Sample new note",
+    //   id: notes.length.toString()
+    // };
+    // setNotes([...notes, newNote]);
+    navigation.navigate("Add Note");
   }
 
   function renderNote({ item }) {
