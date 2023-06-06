@@ -14,7 +14,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{ headerShown: false, presentation: "modal" }}>
-        <Stack.Screen name="Notes" component={NotesScreen} />
+        <Stack.Screen name="NotesStack" component={NotesScreen} />
         <Stack.Screen name="Add Note" component={AddScreen} />
       </Stack.Navigator>
     </NavigationContainer>

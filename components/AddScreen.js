@@ -22,7 +22,11 @@ export default function AddScreen({ navigation }) {
         }}
       />
       <View style={styles.buttonRow}>
-        <TouchableOpacity style={styles.button} onPress={() => {}}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate("Notes", { text, a: "bbbbb" });
+          }}>
           <Text style={styles.buttonText}>Submit</Text>
         </TouchableOpacity>
         <TouchableOpacity

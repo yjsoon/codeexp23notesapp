@@ -9,7 +9,7 @@ import {
 import { FontAwesome } from "@expo/vector-icons";
 import { createStackNavigator } from "@react-navigation/stack";
 
-function NotesScreen({ navigation }) {
+function NotesScreen({ navigation, route }) {
   const [notes, setNotes] = useState([
     { title: "Walk the cat", id: "0" },
     { title: "Feed the banana", id: "1" }
@@ -30,12 +30,17 @@ function NotesScreen({ navigation }) {
     });
   });
 
+  useEffect(() => {
+    if (route.params?.text) {
+      let newNote = {
+        title: route.params.text,
+        id: notes.length.toString()
+      };
+      setNotes([...notes, newNote]);
+    }
+  }, [route.params?.text]);
+
   function addNote() {
-    // let newNote = {
-    //   title: "Sample new note",
-    //   id: notes.length.toString()
-    // };
-    // setNotes([...notes, newNote]);
     navigation.navigate("Add Note");
   }
 
