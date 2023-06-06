@@ -1,9 +1,30 @@
+import { useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { FontAwesome } from "@expo/vector-icons";
 
-function NotesScreen() {
+function NotesScreen({ navigation }) {
+  useEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (
+        <TouchableOpacity onPress={addNote}>
+          <FontAwesome
+            name="pencil-square-o"
+            size={24}
+            color="black"
+            style={{ marginRight: 10 }}
+          />
+        </TouchableOpacity>
+      )
+    });
+  });
+
+  function addNote() {
+    console.log("Hello! I am new note!!!");
+  }
+
   return (
     <View style={styles.container}>
       <Text>Open up App.js to start working on your app!</Text>
