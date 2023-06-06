@@ -7,8 +7,9 @@ import {
   FlatList
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function NotesScreen({ navigation }) {
+function NotesScreen({ navigation }) {
   const [notes, setNotes] = useState([
     { title: "Walk the cat", id: "0" },
     { title: "Feed the banana", id: "1" }
@@ -62,6 +63,30 @@ export default function NotesScreen({ navigation }) {
     </View>
   );
 }
+
+const Stack = createStackNavigator();
+
+export default function NotesStack() {
+  return (
+    <Stack.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#f93",
+          height: 130, // Adjust the height as per your requirement
+          elevation: 4, // Adds a shadow for Android devices
+          borderBottomWidth: 1, // Adds a border under the header
+          borderBottomColor: "gray" // Border color
+        },
+        headerTitleStyle: {
+          fontWeight: "bold",
+          fontSize: 30
+        }
+      }}>
+      <Stack.Screen name="Notes" component={NotesScreen} />
+    </Stack.Navigator>
+  );
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
